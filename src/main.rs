@@ -1,8 +1,8 @@
-mod hw;
 mod communication;
+mod hw;
 
-fn main(){
+fn main() {
     hw::hello_world();
     let result = communication::my_udp();
-    println!("udp com {:?}",result);
+    println!("udp com {:?}", result);
 }

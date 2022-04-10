@@ -1,6 +1,6 @@
 use std::net::UdpSocket;
 
-pub fn my_udp() -> std::io::Result<()>{
+pub fn my_udp() -> std::io::Result<()> {
     {
         let socket = UdpSocket::bind("127.0.0.1:50001")?;
 
