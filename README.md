@@ -1,4 +1,4 @@
-![Rust](https://github.com/takamatsu-shyo/rust_sandbox/actions/workflows/rust.yml/badge.svg)
+![Rust](https://github.com/takamatsu-shyo/rust_sandbox/actions/workflows/Rust/badge.svg)
 
 # rust_sandbox
 The first Rust project.
