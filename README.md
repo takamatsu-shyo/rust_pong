@@ -3,11 +3,11 @@ The first Rust project.
 
 ## Ideas to try
 - components
--- gui
--- sound
+-[] gui: tui
+-[x] sound: Rodio
 - environment
--- cross compile
-- pong 
--- ball modeling
--- bounding
+-[] cross compile
+- pong  engine
+-[] ball modeling
+-[] bounding
 

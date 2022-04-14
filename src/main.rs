@@ -1,11 +1,47 @@
 use std::fs::File;
+use std::io;
 use std::io::BufReader;
 use rodio::{Decoder, OutputStream, source::Source};
+
+use tui::Terminal;
+use tui::backend::TermionBackend;
+use termion::raw::IntoRawMode;
+use tui::widgets::{Widget, Block, Borders};
+use tui::layout::{Layout, Constraint, Direction};
+
+
 mod hw;
 mod communication;
 
-fn main() {
-    hw::hello_world();
+fn main() -> Result<(), io::Error>  {
+    //hw::hello_world();
+
+    let stdout = io::stdout().into_raw_mode()?;
+    let backend = TermionBackend::new(stdout);
+    let mut terminal = Terminal::new(backend)?;
+    terminal.draw(|f| {
+        let chunks = Layout::default()
+            .direction(Direction::Vertical)
+            .margin(1)
+            .constraints(
+                [
+                    Constraint::Percentage(10),
+                    Constraint::Percentage(80),
+                    Constraint::Percentage(10)
+                ].as_ref()
+            )
+            .split(f.size());
+        let block = Block::default()
+            .title("Block")
+            .borders(Borders::ALL);
+        f.render_widget(block, chunks[0]);
+        let block = Block::default()
+            .title("Block 2")
+            .borders(Borders::ALL);
+        f.render_widget(block, chunks[1]);
+    });
+
+    
 
     // Get a output stream handle to the default physical sound device
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
@@ -21,6 +57,9 @@ fn main() {
     // so we need to keep the main thread alive while it's playing.
     std::thread::sleep(std::time::Duration::from_secs(5));
 
-    let result = communication::my_udp();
-    println!("udp com {:?}", result);
+    // UDP
+    //let result = communication::my_udp();
+    //println!("udp com {:?}", result);
+
+    Ok(())
 }
