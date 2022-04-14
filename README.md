@@ -1,3 +1,6 @@
+
+![Rust](https://github.com/takamatsu-shyo/rust_sandbox/actions/workflows/rust.yaml/badge.svg)
+
 # rust_sandbox
 The first Rust project.
 
