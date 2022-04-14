@@ -1,6 +1,5 @@
 name: Rust
 
-runs-on: self-hosted
 
 on:
   push:
@@ -13,8 +12,7 @@ env:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
